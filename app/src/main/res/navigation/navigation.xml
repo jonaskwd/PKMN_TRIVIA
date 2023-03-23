@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleScreenFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/titleScreenFragment"
+        android:name="com.example.guessthecolor.game.TitleScreenFragment"
+        android:label="TitleScreenFragment"
+        tools:layout="@layout/fragment_title_screen" >
+        <action
+            android:id="@+id/action_titleScreenFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_titleScreenFragment_to_trackRecordFragment"
+            app:destination="@id/trackRecordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.guessthecolor.game.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.guessthecolor.game.ResultsFragment"
+        android:label="ResultsFragment" >
+        <action
+            android:id="@+id/action_resultsFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <argument
+            android:name="totalCorrect"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_resultsFragment_to_titleScreenFragment"
+            app:destination="@id/titleScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackRecordFragment"
+        android:name="com.example.guessthecolor.game.TrackRecordFragment"
+        android:label="fragment_track_record"
+        tools:layout="@layout/fragment_track_record" >
+        <action
+            android:id="@+id/action_trackRecordFragment_to_titleScreenFragment"
+            app:destination="@id/titleScreenFragment" />
+        <action
+            android:id="@+id/action_trackRecordFragment_to_detailedRecordsFragment"
+            app:destination="@id/detailedRecordsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailedRecordsFragment"
+        android:name="com.example.guessthecolor.game.DetailedRecordsFragment"
+        android:label="DetailedRecordsFragment" >
+        <action
+            android:id="@+id/action_detailedRecordsFragment_to_trackRecordFragment"
+            app:destination="@id/trackRecordFragment" />
+    </fragment>
+</navigation>
